@@ -1,0 +1,36 @@
+From d1dd570cf77cb2c63bc32bef12d5353e3a197146 Mon Sep 17 00:00:00 2001
+From: Baruch Siach <baruch@tkos.co.il>
+Date: Fri, 16 Aug 2019 09:54:57 +0300
+Subject: [PATCH] sample: fix readline include in ipmi_serial_bmc_emu.c
+
+Bundled editline has been removed. Use the readline headers instead. Fix
+the build when editline is not installed on host.
+
+Signed-off-by: Baruch Siach <baruch@tkos.co.il>
+Message-Id: <6a051666b50ae1df24b24312a7a56a03e343c15d.1565938497.git.baruch@tkos.co.il>
+Signed-off-by: Corey Minyard <cminyard@mvista.com>
+
+Origin: upstream, https://sourceforge.net/p/openipmi/code/ci/d1dd570cf77cb2c63bc32bef12d5353e3a197146
+Applied-upstream: 2.0.28
+Last-Update: 2019-11-28
+
+---
+ sample/ipmi_serial_bmc_emu.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/sample/ipmi_serial_bmc_emu.c b/sample/ipmi_serial_bmc_emu.c
+index e0ae0197..1b8bb9ac 100644
+--- a/sample/ipmi_serial_bmc_emu.c
++++ b/sample/ipmi_serial_bmc_emu.c
+@@ -42,7 +42,7 @@
+ #include <unistd.h>
+ #include <stdlib.h>
+ #include <sys/select.h>
+-#include <editline/readline.h>
++#include <readline/readline.h>
+ 
+ #define _GNU_SOURCE
+ #include <getopt.h>
+-- 
+2.24.0
+

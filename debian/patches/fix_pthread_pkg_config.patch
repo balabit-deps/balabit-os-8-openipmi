@@ -1,0 +1,18 @@
+Description: fix pkg-config files: pthread.pc does not exist in Ubuntu
+ Forward-ported from 2.10.16-1.1, as it seems to have been dropped in
+ Debian.
+Author: Simon McVittie <smcv@debian.org>
+Bug-Debian: https://bugs.debian.org/474087
+Bug-Ubuntu: https://bugs.launchpad.net/bugs/1311888
+
+Index: b/OpenIPMIpthread.pc.in
+===================================================================
+--- a/OpenIPMIpthread.pc.in
++++ b/OpenIPMIpthread.pc.in
+@@ -7,5 +7,5 @@ Name: OpenIPMIpthread
+ Description: Pthread OS handler for OpenIPMI
+ Version: @VERSION@
+ Requires: OpenIPMI
+-Libs: -L${libdir} -lOpenIPMIutils -lOpenIPMIpthread
++Libs: -L${libdir} -lOpenIPMIutils -lOpenIPMIpthread -pthread
+ Cflags: -I${includedir} -pthread
